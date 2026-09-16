@@ -5,6 +5,8 @@ Retrieval-Augmented Generation (RAG) usually works in two stages:
 1. Retrieval: a system fetches a set of candidate documents.
 2. Reranking: the retrieved documents are reordered by relevance before being passed to the language model.
 
+![alt text](image.png)
+
 The first stage may return relevant but noisy results. Reranking helps improve answer quality by prioritizing the passages that best match the user query.
 
 This folder contains examples of several reranking approaches:
@@ -15,6 +17,7 @@ This folder contains examples of several reranking approaches:
 - FlashRank reranker
 - Cohere reranker
 
+![alt text](image-1.png)
 ## Why reranking matters
 
 In a typical RAG pipeline, retrieval is not always enough. A dense or sparse retriever may return documents that are related but not the most useful for the query. Reranking reduces the noise and brings the most relevant passages to the top.
