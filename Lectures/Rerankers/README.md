@@ -13,6 +13,7 @@ This folder contains examples of several reranking approaches:
 - Cosine similarity reranker
 - CrossEncoder reranker
 - FlashRank reranker
+- Cohere reranker
 
 ## Why reranking matters
 
@@ -84,6 +85,21 @@ FlashRank is an efficient reranking library that makes it easier to apply strong
 
 FlashRank is a practical choice for production RAG applications where you want stronger relevance filtering without the overhead of a full custom ranking pipeline.
 
+## 5. Cohere reranker
+
+Cohere provides a hosted reranking service that evaluates the relevance of candidate documents against the user query. It is especially useful when you want a strong semantic reranker without managing model hosting yourself.
+
+### Key characteristics
+
+- High-quality semantic relevance scoring
+- Good for production-grade retrieval pipelines
+- Works well on a small set of candidate documents
+- API-based, so it reduces local infrastructure complexity
+
+### Use case
+
+Cohere reranking is valuable in real-world RAG systems where you need strong relevance filtering and want to rely on a managed model service for better accuracy and convenience.
+
 ## Comparison
 
 Each reranker has a different strength:
@@ -92,6 +108,7 @@ Each reranker has a different strength:
 - Cosine similarity is best for semantic matching using embeddings.
 - CrossEncoder is best for high-quality reranking of a shortlist.
 - FlashRank is best for efficient, practical reranking in real systems.
+- Cohere is best when you want a managed, production-ready semantic reranker with strong relevance scoring.
 
 In practice, many RAG systems combine multiple methods:
 
@@ -105,6 +122,6 @@ This gives a better answer quality than relying on raw retrieval scores alone.
 
 Reranking is a critical step in modern RAG pipelines. While retrieval decides which documents are considered, reranking decides which ones are actually most useful for the user’s query. The choice of reranker depends on the tradeoff between speed, interpretability, and accuracy.
 
-For simple lexical search, BM25 is powerful. For semantic retrieval, cosine similarity is useful. For stronger relevance matching, CrossEncoder and FlashRank generally provide better ranking quality.
+For simple lexical search, BM25 is powerful. For semantic retrieval, cosine similarity is useful. For stronger relevance matching, CrossEncoder, FlashRank, and Cohere generally provide better ranking quality.
 
 The examples in this folder demonstrate how these methods can be applied in practice and compared side by side.
